@@ -1,0 +1,70 @@
+@import url("./background.css");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--kids-bg);
+    background-attachment: fixed;
+    color: #1f2d3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.home-card {
+    width: min(760px, 100%);
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    box-shadow: 0 14px 40px rgba(40, 72, 120, 0.16);
+    padding: 32px 28px;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.subtitle {
+    margin: 0 0 24px;
+    color: #4c5d73;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+}
+
+.game-link {
+    text-decoration: none;
+    background: #ffffff;
+    border: 2px solid #e4ecf7;
+    border-radius: 14px;
+    padding: 16px;
+    color: #1f2d3d;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.game-link:hover {
+    transform: translateY(-2px);
+    border-color: #8ab9ff;
+    box-shadow: 0 10px 20px rgba(62, 118, 214, 0.15);
+}
+
+.game-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.game-description {
+    margin: 0;
+    color: #5a6d86;
+    font-size: 0.95rem;
+}

@@ -1,0 +1,331 @@
+@import url("../common/background.css");
+
+body {
+    background: var(--kids-bg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #f5f6fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 48px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 350px;
+    max-width: 90vw;
+}
+
+.question-number {
+    font-size: 2rem;
+    color: #888;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.scrambled-word {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #2d3436;
+    margin-bottom: 32px;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.tries-left {
+    font-size: 1.5rem;
+    color: #e17055;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.feedback {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    min-height: 40px;
+    text-align: center;
+}
+
+.score {
+    font-size: 1.5rem;
+    color: #636e72;
+    margin-bottom: 16px;
+}
+
+.input-section {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.answer-input {
+    font-size: 2rem;
+    padding: 12px 16px;
+    border: 3px solid #74b9ff;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    text-transform: lowercase;
+    width: 200px;
+}
+
+.answer-input:focus {
+    outline: none;
+    border-color: #0984e3;
+    box-shadow: 0 0 0 2px rgba(116, 185, 255, 0.2);
+}
+
+.submit-btn {
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #74b9ff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background: #0984e3;
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.next-btn, .restart-btn {
+    font-size: 1.5rem;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 12px;
+    background: #00b894;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.next-btn:hover, .restart-btn:hover {
+    background: #00cec9;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: #636e72;
+    color: #fff;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.12);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding-top: 32px;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.sidebar-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.difficulty-selector {
+    margin-bottom: 24px;
+    padding: 0 16px;
+}
+
+.difficulty-selector label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.difficulty-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.difficulty-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #00b894;
+}
+
+.sidebar-tab {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 18px 0 18px 16px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sidebar-tab.active, .sidebar-tab:hover {
+    background: #00b894;
+    color: #fff;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 2100;
+    background: #636e72;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 2rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+
+.sidebar-toggle:hover {
+    background: #00b894;
+}
+
+.home-btn {
+    position: fixed;
+    top: 24px;
+    left: 96px;
+    z-index: 2100;
+    background: #636e72;
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+
+.home-btn:hover {
+    background: #00b894;
+}
+
+#fireworks-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.1);
+}
+
+.motivational-quote {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1100;
+    font-size: 2.2rem;
+    color: #fdcb6e;
+    background: rgba(0,0,0,0.7);
+    padding: 24px 40px;
+    border-radius: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    pointer-events: none;
+    animation: pop-in 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes pop-in {
+    0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+    80% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        padding: 24px 8px;
+        min-width: unset;
+    }
+    .scrambled-word {
+        font-size: 2.2rem;
+        letter-spacing: 0.3rem;
+    }
+    .answer-input {
+        font-size: 1.5rem;
+        width: 150px;
+    }
+    .submit-btn {
+        font-size: 1.2rem;
+        padding: 10px 16px;
+    }
+    .question-number {
+        font-size: 1.2rem;
+    }
+    .sidebar {
+        width: 80vw;
+        min-width: 180px;
+        max-width: 320px;
+    }
+    .sidebar-toggle {
+        top: 12px;
+        left: 12px;
+        font-size: 1.5rem;
+        padding: 6px 12px;
+    }
+    .home-btn {
+        top: 12px;
+        left: 76px;
+        padding: 10px 14px;
+        font-size: 1rem;
+    }
+} 

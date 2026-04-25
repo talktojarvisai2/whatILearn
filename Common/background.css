@@ -1,0 +1,8 @@
+:root {
+    --kids-bg:
+        radial-gradient(circle at 8% 16%, rgba(255, 214, 165, 0.45), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(173, 216, 255, 0.45), transparent 30%),
+        radial-gradient(circle at 14% 84%, rgba(178, 240, 216, 0.38), transparent 30%),
+        radial-gradient(circle at 76% 84%, rgba(255, 214, 230, 0.36), transparent 28%),
+        linear-gradient(145deg, #f8fbff 0%, #eef5ff 42%, #f2fff8 100%);
+}

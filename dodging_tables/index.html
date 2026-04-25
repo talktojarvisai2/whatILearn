@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodging Tables</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dodging-tables" data-common-path="../common">
+    <a href="../index.html" class="home-btn" aria-label="Go to home page">Home</a>
+    <div id="sidebar" class="sidebar closed">
+        <button id="close-sidebar" class="sidebar-close">&times;</button>
+        <div class="sidebar-title">Dodging Tables</div>
+        <div class="difficulty-selector">
+            <label for="base-number-input">Choose your number (1–12):</label>
+            <input list="table-options" id="base-number-input" class="difficulty-select" min="1" max="12" value="2">
+            <datalist id="table-options">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+                <option value="10"></option>
+                <option value="11"></option>
+                <option value="12"></option>
+            </datalist>
+        </div>
+        <button id="start-btn" class="sidebar-tab active">Start Practice</button>
+    </div>
+    <button id="open-sidebar" class="sidebar-toggle">&#9776;</button>
+    <div class="dodging-main">
+        <div class="quiz-container">
+            <div id="question-number" class="question-number"></div>
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
+            <div id="feedback" class="feedback"></div>
+            <div id="score" class="score"></div>
+            <button id="next-btn" class="next-btn" style="display:none;">Next</button>
+            <button id="restart-btn" class="restart-btn" style="display:none;">Restart</button>
+        </div>
+        <div class="dodging-image-container">
+            <button id="hint-btn" class="hint-btn">Hint</button>
+            <div id="carson-table-wrapper" class="carson-table-wrapper hint-hidden"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="../common/random-background.js"></script>
+</body>
+</html>
