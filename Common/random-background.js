@@ -2,7 +2,7 @@
     const body = document.body;
     if (!body) return;
 
-    const commonPath = body.dataset.commonPath || "common";
+    const commonPath = body.dataset.commonPath || "Common";
 
     // Add any new background images here (img3.jpg, img4.avif, etc.).
     const imageNames = [
