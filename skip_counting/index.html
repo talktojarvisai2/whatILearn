@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skip Counting Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-common-path="../Common">
+    <a href="../index.html" class="home-btn" aria-label="Go to home page">Home</a>
+
+    <div id="sidebar" class="sidebar closed">
+        <button id="close-sidebar" class="sidebar-close" aria-label="Close menu">&times;</button>
+        <div class="sidebar-title">Menu</div>
+        <div class="count-selector">
+            <label for="skip-count-select">Skip Count Number:</label>
+            <select id="skip-count-select" class="count-select"></select>
+        </div>
+        <button id="tab-skip-counting" class="sidebar-tab active">Skip Counting</button>
+    </div>
+
+    <button id="open-sidebar" class="sidebar-toggle" aria-label="Open menu">&#9776;</button>
+
+    <div class="game-container">
+        <div id="question-number" class="question-number"></div>
+        <div id="sequence" class="sequence"></div>
+        <div id="feedback" class="feedback"></div>
+        <div id="score" class="score"></div>
+
+        <div class="input-section">
+            <input type="number" id="answer-input" class="answer-input" placeholder="Missing number">
+            <button id="submit-btn" class="submit-btn">Submit</button>
+        </div>
+
+        <button id="next-btn" class="next-btn" style="display:none;">Next</button>
+        <button id="restart-btn" class="restart-btn" style="display:none;">Restart</button>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="../Common/random-background.js"></script>
+</body>
+</html>
