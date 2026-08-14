@@ -1,4 +1,4 @@
-@import url("../Common/background.css");
+@import url("../../Common/background.css");
 
 body {
     background: var(--kids-bg);
@@ -8,89 +8,113 @@ body {
     background-color: #f5f6fa;
     font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 24px 16px;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
 }
 
 .game-container {
     background: #fff;
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    padding: 48px 32px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 380px;
-    max-width: 92vw;
+    padding: 40px 32px 32px;
+    width: min(720px, 100%);
+    margin-top: 56px;
+}
+
+.page-title {
+    margin: 0 0 8px;
+    font-size: 1.8rem;
+    color: #2d3436;
+    text-align: center;
+}
+
+.grade-display,
+.question-number {
+    text-align: center;
+    color: #636e72;
+    font-weight: 600;
+}
+
+.grade-display {
+    margin-bottom: 6px;
 }
 
 .question-number {
-    font-size: 1.8rem;
-    color: #888;
-    margin-bottom: 12px;
-    font-weight: 500;
-}
-
-.skip-count-display {
-    font-size: 1.3rem;
-    color: #636e72;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.sequence {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #2d3436;
     margin-bottom: 20px;
-    text-align: center;
-    letter-spacing: 0.12rem;
+    font-size: 1.1rem;
 }
 
-.feedback {
-    min-height: 38px;
+.equations {
+    background: #f8f9fb;
+    border: 2px solid #dfe6e9;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
     font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 14px;
+    line-height: 1.8;
     text-align: center;
+    font-family: "Courier New", monospace;
 }
 
-.score {
-    font-size: 1.3rem;
-    color: #636e72;
-    margin-bottom: 18px;
-}
-
-.input-section {
+.answer-section {
     display: flex;
-    gap: 14px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 16px;
+}
+
+.answer-section label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3436;
 }
 
 .answer-input {
-    font-size: 1.6rem;
-    width: 190px;
+    width: 100px;
+    font-size: 1.2rem;
     text-align: center;
-    padding: 10px 14px;
+    padding: 10px;
     border: 3px solid #74b9ff;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .answer-input:focus {
     outline: none;
     border-color: #0984e3;
-    box-shadow: 0 0 0 2px rgba(116, 185, 255, 0.2);
+}
+
+.feedback {
+    min-height: 32px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.score {
+    text-align: center;
+    color: #636e72;
+    margin-bottom: 16px;
+}
+
+.action-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
 }
 
 .submit-btn,
 .next-btn,
-.restart-btn {
-    font-size: 1.2rem;
-    padding: 11px 20px;
+.restart-btn,
+.hint-btn {
+    font-size: 1.1rem;
+    padding: 11px 22px;
     border: none;
     border-radius: 12px;
     color: #fff;
@@ -106,15 +130,57 @@ body {
     background: #0984e3;
 }
 
+.hint-btn {
+    background: #ffb3b3;
+    color: #2d3436;
+}
+
+.hint-btn:hover {
+    background: #ff9999;
+    color: #2d3436;
+}
+
 .next-btn,
 .restart-btn {
     background: #00b894;
-    margin-top: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 .next-btn:hover,
 .restart-btn:hover {
     background: #00cec9;
+}
+
+.hint-panel {
+    background: #fff8e6;
+    border: 2px solid #ffeaa7;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 8px;
+}
+
+.hint-panel h2 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    color: #856404;
+}
+
+.hint-steps {
+    margin: 0;
+    padding-left: 22px;
+    color: #2d3436;
+    line-height: 1.7;
+}
+
+.hint-steps li {
+    margin-bottom: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 0.95rem;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .sidebar {
@@ -149,38 +215,31 @@ body {
     text-align: center;
 }
 
-.count-selector {
+.grade-selector {
     margin-bottom: 22px;
     padding: 0 16px;
 }
 
-.count-selector label {
+.grade-selector label {
     display: block;
     font-size: 1rem;
     margin-bottom: 8px;
     color: #ddd;
 }
 
-.count-select {
+.grade-select {
     width: 100%;
     padding: 8px 12px;
     border: none;
     border-radius: 8px;
-    background: #fff;
-    color: #333;
     font-size: 0.95rem;
-}
-
-.count-select:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #00b894;
 }
 
 .sidebar-tab {
     background: #00b894;
     border: none;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     padding: 18px 0 18px 16px;
     text-align: left;
     width: 100%;
@@ -215,28 +274,10 @@ body {
     background: #00b894;
 }
 
-.home-btn {
+.home-btn,
+.back-btn {
     position: fixed;
     top: 24px;
-    left: 96px;
-    z-index: 2100;
-    background: #636e72;
-    color: #fff;
-    border-radius: 10px;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.home-btn:hover {
-    background: #00b894;
-}
-
-.o-levels-btn {
-    position: fixed;
-    top: 24px;
-    left: 200px;
     z-index: 2100;
     background: #636e72;
     color: #fff;
@@ -247,53 +288,42 @@ body {
     text-decoration: none;
 }
 
-.o-levels-btn:hover {
+.home-btn {
+    left: 96px;
+}
+
+.back-btn {
+    left: 200px;
+}
+
+.home-btn:hover,
+.back-btn:hover {
     background: #00b894;
 }
 
 @media (max-width: 700px) {
     .game-container {
-        min-width: unset;
-        padding: 26px 12px;
+        padding: 28px 16px;
+        margin-top: 72px;
     }
 
-    .sequence {
-        font-size: 2rem;
+    .equations {
+        font-size: 1.15rem;
+        padding: 16px;
     }
 
-    .answer-input {
-        width: 150px;
-        font-size: 1.3rem;
+    .home-btn {
+        left: 76px;
+        padding: 10px 14px;
     }
 
-    .input-section {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 80vw;
-        min-width: 180px;
-        max-width: 320px;
+    .back-btn {
+        top: 68px;
+        left: 12px;
     }
 
     .sidebar-toggle {
         top: 12px;
         left: 12px;
-        font-size: 1.5rem;
-        padding: 6px 12px;
-    }
-
-    .home-btn {
-        top: 12px;
-        left: 76px;
-        padding: 10px 14px;
-        font-size: 1rem;
-    }
-
-    .o-levels-btn {
-        top: 68px;
-        left: 12px;
-        padding: 10px 14px;
-        font-size: 0.95rem;
     }
 }

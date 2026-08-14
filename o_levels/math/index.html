@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Levels Math - Simultaneous Equations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-common-path="../../Common">
+    <a href="../../index.html" class="home-btn" aria-label="Go to home page">Home</a>
+    <a href="../../skip_counting/index.html" class="back-btn" aria-label="Go to skip counting">Skip Counting</a>
+
+    <div id="sidebar" class="sidebar closed">
+        <button id="close-sidebar" class="sidebar-close" aria-label="Close menu">&times;</button>
+        <div class="sidebar-title">Menu</div>
+        <div class="grade-selector">
+            <label for="grade-select">O Level Grade:</label>
+            <select id="grade-select" class="grade-select">
+                <option value="9">Class 9</option>
+                <option value="10" selected>Class 10</option>
+                <option value="11">Class 11</option>
+            </select>
+        </div>
+        <button class="sidebar-tab active">Simultaneous Equations</button>
+    </div>
+
+    <button id="open-sidebar" class="sidebar-toggle" aria-label="Open menu">&#9776;</button>
+
+    <main class="game-container">
+        <h1 class="page-title">Simultaneous Equations</h1>
+        <p id="grade-display" class="grade-display"></p>
+        <div id="question-number" class="question-number"></div>
+
+        <div id="equations" class="equations"></div>
+
+        <div class="answer-section">
+            <label id="answer-label-x" for="answer-x">x =</label>
+            <input type="number" id="answer-x" class="answer-input" placeholder="x">
+            <label id="answer-label-y" for="answer-y">y =</label>
+            <input type="number" id="answer-y" class="answer-input" placeholder="y">
+            <label id="answer-label-z" for="answer-z" class="hidden">z =</label>
+            <input type="number" id="answer-z" class="answer-input hidden" placeholder="z">
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+        <div id="score" class="score"></div>
+
+        <div class="action-row">
+            <button id="hint-btn" class="hint-btn">Hint</button>
+            <button id="submit-btn" class="submit-btn">Submit</button>
+        </div>
+
+        <div id="hint-panel" class="hint-panel hidden">
+            <h2>Solution Steps</h2>
+            <ol id="hint-steps" class="hint-steps"></ol>
+        </div>
+
+        <button id="next-btn" class="next-btn hidden">Next</button>
+        <button id="restart-btn" class="restart-btn hidden">Restart</button>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="../../Common/random-background.js"></script>
+</body>
+</html>

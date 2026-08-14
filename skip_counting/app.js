@@ -2,6 +2,7 @@ const questionNumberDiv = document.getElementById("question-number");
 const sequenceDiv = document.getElementById("sequence");
 const feedbackDiv = document.getElementById("feedback");
 const scoreDiv = document.getElementById("score");
+const skipCountDisplayDiv = document.getElementById("skip-count-display");
 const answerInput = document.getElementById("answer-input");
 const submitBtn = document.getElementById("submit-btn");
 const nextBtn = document.getElementById("next-btn");
@@ -52,6 +53,10 @@ function sequenceText() {
         .join(", ");
 }
 
+function updateSkipCountDisplay() {
+    skipCountDisplayDiv.textContent = `Skip count by ${selectedSkipCount}`;
+}
+
 function showQuestion() {
     feedbackDiv.textContent = "";
     feedbackDiv.style.color = "#2d3436";
@@ -62,6 +67,7 @@ function showQuestion() {
     restartBtn.style.display = "none";
 
     generateQuestion();
+    updateSkipCountDisplay();
     questionNumberDiv.textContent = `Question ${currentQuestion + 1} of ${TOTAL_QUESTIONS}`;
     sequenceDiv.textContent = sequenceText();
     scoreDiv.textContent = `Score: ${score} / ${TOTAL_QUESTIONS}`;
@@ -131,6 +137,7 @@ closeSidebarBtn.onclick = () => {
 
 skipCountSelect.onchange = () => {
     selectedSkipCount = Number(skipCountSelect.value);
+    updateSkipCountDisplay();
     startGame();
 };
 
